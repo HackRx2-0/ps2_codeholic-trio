@@ -39,6 +39,7 @@ const defaultNavOptions = {
   headerTintColor: Platform.OS === "android" ? "white" : Colors.primary,
 };
 
+
 const ProductsNavigator = createStackNavigator(
   {
     ProductsOverview: ProductsOverviewScreen,
@@ -100,7 +101,7 @@ const ShopNavigator = createDrawerNavigator(
   {
     Products: ProductsNavigator,
     Orders: OrdersNavigator,
-    Admin: AdminNavigator,
+    Admin: AdminNavigator
   },
   {
     contentOptions: {
@@ -126,6 +127,7 @@ const ShopNavigator = createDrawerNavigator(
     },
   }
 );
+
 
 const BottomNavigator = createBottomTabNavigator(
   {

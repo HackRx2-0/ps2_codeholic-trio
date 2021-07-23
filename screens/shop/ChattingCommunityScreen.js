@@ -11,18 +11,11 @@ const ChattingCommunityScreen = () => {
 
   return (
     <View>
-      <Text>{user.username}</Text>
-      <FlatList
-      data={user.rooms}
-      keyExtractor={item => item.id}
-      renderItem={itemData => (
-        <UserItem
-          id={itemData.item.id}
-          username={itemData.item.username}
-          rooms={itemData.item.rooms}
-        />
-      )}
-    />
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
     </View>
   )
 };
