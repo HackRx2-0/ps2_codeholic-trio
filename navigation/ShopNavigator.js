@@ -134,16 +134,27 @@ const BottomNavigator = createBottomTabNavigator(
     ShoppingSession: ShoppingSessionScreen,
   },
   {
-    navigationOptions: {
-      drawerIcon: (drawerConfig) => (
-        <Ionicons
-          name={Platform.OS === "android" ? "md-create" : "ios-create"}
-          size={23}
-          color={drawerConfig.tintColor}
-        />
-      ),
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === "Home") {
+          iconName = `ios-home${focused ? "" : "-outline"}`;
+        } else if (routeName === "ChattingCommunity") {
+          iconName = `ios-chatbubbles${focused ? "" : "-outline"}`;
+        } else if (routeName === "ShoppingSession") {
+          iconName = `ios-basket${focused ? "" : "-outline"}`;
+        }
+
+        // You can return any component that you like here! We usually use an
+        // icon component from react-native-vector-icons
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: Colors.primary,
+      inactiveTintColor: "black",
     },
-    defaultNavigationOptions: defaultNavOptions,
   }
 );
 

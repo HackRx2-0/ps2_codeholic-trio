@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { Ionicons } from "@expo/vector-icons";
 
 import HeaderButton from "../../components/UI/HeaderButton";
 import ProductItem from "../../components/shop/ProductItem";
@@ -92,7 +93,12 @@ const ProductsOverviewScreen = (props) => {
 
   return (
     <View>
-      <TextInput label="Search" />
+      <View>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search for products "
+        />
+      </View>
       <FlatList
         onRefresh={loadProducts}
         refreshing={isRefreshing}
@@ -158,6 +164,10 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
 
 const styles = StyleSheet.create({
   centered: { flex: 1, justifyContent: "center", alignItems: "center" },
+  searchBar: {
+    height: 45,
+    padding: 10,
+  },
 });
 
 export default ProductsOverviewScreen;
